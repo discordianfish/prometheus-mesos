@@ -1,4 +1,4 @@
-# prometheus-dcos
+# Prometheus on DCOS
 Prometheus docker image with config, alerting rules and console
 templates for DCOS.
 
@@ -9,5 +9,11 @@ Alternatively, you can just use the marathon.json to deploy this to any mesos / 
 
 You also need to deploy the [mesos-exporter](/prometheus/mesos_exporter) and [node-exporter](github.com/prometheus/node_exporter) to all mesos slaves.
 
-## Status
-All this is in a demo state, it's not intended for production deployment and requires a mesos-dns version built from master after mesosphere/mesos-dns@06635ff6e44f68b8d21ad5eca886c49149118ba3.
+## Prometheus Components
+- Server
+  - prometheus + mesos-exporter for masters + alertmanager
+  - two instances deployed via Universe
+- Node-Exporter and Mesos-Exporter for slaves
+  - deployed to all DCOS hosts
+  - not managed by mesos because no way to guarantee one instance per host when
+    scheduled on mesos

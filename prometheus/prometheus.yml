@@ -34,5 +34,4 @@ scrape_configs:
       type: A
       port: 9105
       names:
-      - master.mesos
       - slave.mesos
