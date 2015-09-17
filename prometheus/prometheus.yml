@@ -32,6 +32,6 @@ scrape_configs:
     dns_sd_configs:
     - refresh_interval: 15s
       type: A
-      port: 9105
+      port: 9110
       names:
       - slave.mesos
